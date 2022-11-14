@@ -1,9 +1,7 @@
 import random
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow
-from PyQt5.QtGui import QPainter, QColor, QPen
-from PyQt5.QtCore import Qt
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QPainter, QColor
 from PyQt5 import uic
 
 
@@ -17,6 +15,7 @@ class Example(QMainWindow):
     def show_circles(self):
         self.coords = random.randint(50, 400), random.randint(100, 430)
         self.size = random.randint(20, 80)
+        self.color = random.choice(['red', 'yellow', 'green', 'black', 'blue', 'pink'])
         self.flag = True
         self.update()
 
@@ -29,7 +28,7 @@ class Example(QMainWindow):
             self.flag = False
 
     def draw_circle(self, painter):
-        painter.setBrush(Qt.yellow)
+        painter.setBrush(QColor(self.color))
         painter.drawEllipse(self.coords[0], self.coords[1], self.size, self.size)
 
 
