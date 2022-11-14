@@ -4,11 +4,13 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtGui import QPainter, QColor
 from PyQt5 import uic
 
+from UI import *
 
-class Example(QMainWindow):
+
+class Example(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('UI.ui', self)
+        self.setupUi(self)
         self.pushButton.clicked.connect(self.show_circles)
         self.flag = False
 
